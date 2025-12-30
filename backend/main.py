@@ -22,6 +22,9 @@ from routes_services import router as services_router
 from routes_schedule import router as schedule_router
 from routes_bookings import router as bookings_router
 from routes_public import router as public_router
+from routes_calendar import router as calendar_router
+from routes_customers import router as customers_router
+from routes_finance import router as finance_router
 
 # Create tables
 Base.metadata.create_all(bind=engine)
@@ -244,6 +247,9 @@ app.include_router(services_router)
 app.include_router(schedule_router)
 app.include_router(bookings_router)
 app.include_router(public_router)
+app.include_router(calendar_router)
+app.include_router(customers_router)
+app.include_router(finance_router)
 
 
 # Exception handlers
