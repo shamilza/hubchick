@@ -18,6 +18,10 @@ from auth import (
     create_refresh_token, verify_token, get_current_master
 )
 from email_service import EmailService
+from routes_services import router as services_router
+from routes_schedule import router as schedule_router
+from routes_bookings import router as bookings_router
+from routes_public import router as public_router
 
 # Create tables
 Base.metadata.create_all(bind=engine)
@@ -236,6 +240,10 @@ async def health_check():
 # Include routers
 app.include_router(auth_router)
 app.include_router(master_router)
+app.include_router(services_router)
+app.include_router(schedule_router)
+app.include_router(bookings_router)
+app.include_router(public_router)
 
 
 # Exception handlers
